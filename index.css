@@ -1,0 +1,26 @@
+li:hover {
+	color: #429999;
+}
+
+@media (max-width: 767px) {
+	.navbar-nav {
+		float: none;
+	}
+	.navbar-collapse.collapse {
+		display: block !important;
+		height: auto !important;
+		overflow: visible !important;
+	}
+	.navbar-collapse.collapse.in {
+		overflow-y: visible !important;
+	}
+	.navbar-collapse.collapse.in:hover {
+		overflow-y: visible !important;
+	}
+	.navbar-collapse.collapse.in:active {
+		overflow-y: visible !important;
+	}
+	.navbar-collapse.collapse.in:focus {
+		overflow-y: visible !important;
+	}
+}
