@@ -127,7 +127,7 @@ productos.forEach((x) => {
 	let div = document.createElement("div");
 	div.innerHTML += `<section 
 			style = "${window.innerWidth <= 1100 ? styledResponsive.section_column : styleCard.section_column}">
-            <img src="../${x.image}" alt="${x.title}" style = "${styleCard.img}"/>
+            <img src="images/${x.image}" alt="${x.title}" style = "${styleCard.img}"/>
             <div style = "${styleCard.div}">
                 <div style = "${styleCard.header}">
                     <h3>${x.title}</h3>
