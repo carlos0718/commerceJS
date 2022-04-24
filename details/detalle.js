@@ -58,8 +58,10 @@ const styleResponsiveDetail = {};
 let idBtn = localStorage.getItem("id");
 
 icon = document.getElementById("icon-cart");
+// Si no existe se crea y se le asigna el valor vacio para que no se muestre nada
 icon.innerText = Number(localStorage.getItem("total")) || " ";
 
+//se array carrito.
 let carrito = [];
 
 setTimeout(() => {
@@ -91,39 +93,44 @@ setTimeout(() => {
 const resizeListenerDetail = () => window.location.reload();
 
 const addToCart = () => {
+	// se obtiene array de objetos de productos que estan alamacenados en el localStorage
 	let producto = JSON.parse(localStorage.getItem("productos"));
+	// se obtiene el id del producto que se esta agregando y se compara con el idBtn del storage
 	let articulo = producto.find((x) => x.id == idBtn);
+	//se actualiza el renderizado del valor del carrito por eso se pone en blanco para que despues de agrege el valor real
 	icon.innerHTML = " ";
 	console.log({ articulo });
-
+	//se inicializa la variable count en cero la cual se usará actualizar la cantidad de cada producto
 	let count = 0;
+	//se inicializa variable total en cero la cual se usará paraactulizar la cantidad del carrito8777
 	let total = 0;
-
+	//se valida si el key carrito existe en el storage
 	if (localStorage.getItem("carrito")) {
+		//si getItem(''carrito) tiene productos, se parsea el string a un array de objetos
 		carrito = JSON.parse(localStorage.getItem("carrito"));
-		total = Number(localStorage.getItem("total"));
+		//actualizamos la cantidad total del carrito
+		total = carrito.reduce((acc, x) => acc + x.cantidad, 0); //Number(localStorage.getItem("total")) + 1;
+		//se valida si el producto que se esta agregando ya existe en el carrito mediante su índice
 		let aux = carrito.findIndex((x) => x.id == articulo.id);
-		console.log(aux);
+		//si aux es mayor a -1, significa que el producto ya existe en el carrito
 		if (aux > -1) {
-			count = carrito[aux].cantidad;
-			total += count;
 			icon.innerText = total;
+			count = carrito[aux].cantidad;
 			carrito[aux] = { ...articulo, cantidad: count + 1 };
 		} else {
-			count = 1;
-			total += count;
-			icon.innerText = total;
-			carrito.push({ ...articulo, cantidad: count });
+			updateCar(total, count, articulo);
 		}
 	} else {
+		total = 1;
 		count = 1;
-		total = count;
-		icon.innerText = total;
-		carrito.push({ ...articulo, cantidad: count });
+		updateCar(total, count, articulo);
 	}
 	console.log({ carrito });
 	localStorage.setItem("carrito", JSON.stringify(carrito));
 	localStorage.setItem("total", total);
 };
-
+const updateCar = (total, count, articulo) => {
+	icon.innerText = total;
+	carrito.push({ ...articulo, cantidad: count });
+};
 window.addEventListener("resize", resizeListenerDetail);

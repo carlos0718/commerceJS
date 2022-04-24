@@ -48,7 +48,7 @@ const productos = [
 			"lorem ipsum lorem ipsum lorem ipsum lorem ipsum orem ipsum lorem ipsum lorem ipsum lorem ipsum orem ipsum lorem ipsum lorem ipsum lorem ipsum",
 	},
 ];
-
+//se guarda array de objetos en localStorage
 localStorage.setItem("productos", JSON.stringify(productos));
 
 const styleCard = {
@@ -127,7 +127,7 @@ productos.forEach((x) => {
 	let div = document.createElement("div");
 	div.innerHTML += `<section 
 			style = "${window.innerWidth <= 1100 ? styledResponsive.section_column : styleCard.section_column}">
-            <img src="${x.image}" alt="${x.title}" style = "${styleCard.img}"/>
+            <img src="../images/${x.image}" alt="${x.title}" style = "${styleCard.img}"/>
             <div style = "${styleCard.div}">
                 <div style = "${styleCard.header}">
                     <h3>${x.title}</h3>
@@ -147,7 +147,4 @@ productos.forEach((x) => {
 	});
 });
 
-console.log(screen);
-
-console.log(outerWidth);
 window.addEventListener("resize", resizeListener);
