@@ -59,7 +59,7 @@ let idBtn = localStorage.getItem("id");
 
 icon = document.getElementById("icon-cart");
 // Si no existe se crea y se le asigna el valor vacio para que no se muestre nada
-icon.innerText = " ";
+icon.innerText = Number(localStorage.getItem("total")) || " ";
 
 //se array carrito.
 let carrito = [];
@@ -99,7 +99,6 @@ const addToCart = () => {
 	let articulo = producto.find((x) => x.id == idBtn);
 	//se actualiza el renderizado del valor del carrito por eso se pone en blanco para que despues de agrege el valor real
 	icon.innerHTML = " ";
-	console.log({ articulo });
 	//se inicializa la variable count en cero la cual se usará actualizar la cantidad de cada producto
 	let count = 0;
 	//se inicializa variable total en cero la cual se usará paraactulizar la cantidad del carrito8777
@@ -125,7 +124,6 @@ const addToCart = () => {
 		count = 1;
 		updateCar(total, count, articulo);
 	}
-	console.log({ carrito });
 	localStorage.setItem("carrito", JSON.stringify(carrito));
 	localStorage.setItem("total", total);
 };

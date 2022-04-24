@@ -112,7 +112,6 @@ const styledResponsive = {
 };
 
 let icon = document.getElementById("icon-cart");
-console.dir(icon);
 icon.innerText = Number(localStorage.getItem("total")) || " ";
 const resizeListener = () => window.location.reload();
 
@@ -140,7 +139,6 @@ productos.forEach((x) => {
 
 	app?.appendChild(div);
 	let idBtn = document.getElementById(`btn${x.id}`);
-	console.dir(idBtn);
 	idBtn?.addEventListener("click", () => {
 		window.location.href = "./details/detalle.html";
 		localStorage.setItem("id", x.id);
