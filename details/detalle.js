@@ -59,7 +59,7 @@ let idBtn = localStorage.getItem("id");
 
 icon = document.getElementById("icon-cart");
 // Si no existe se crea y se le asigna el valor vacio para que no se muestre nada
-icon.innerText = Number(localStorage.getItem("total")) || " ";
+icon.innerText = " ";
 
 //se array carrito.
 let carrito = [];
