@@ -61,7 +61,7 @@ icon = document.getElementById("icon-cart");
 // Si no existe se crea y se le asigna el valor vacio para que no se muestre nada
 icon.innerText = Number(localStorage.getItem("total")) || " ";
 
-//se array carrito.
+//se crea array carrito.
 let carrito = [];
 
 setTimeout(() => {

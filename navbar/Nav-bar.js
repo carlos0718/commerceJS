@@ -34,10 +34,10 @@ const style = {
 
 const NavBar = `<nav style='${style.nav}'>
                     <ul style='${style.ul}'>
-                        <li  id="title" style="${style.title}"><a style="${style.a}" href="/#"> Clothing Store </a></li>
-                        <li style="${style.li}"><a style="${style.a}" href="/#">Home</a></li>
-                        <li style="${style.li}"><a style="${style.a}" href="#">About us</a></li>
-                        <li style="${style.li}"><a style="${style.a}" href="#">Contact</a></li>
+                        <li  id="title" style="${style.title}"><a style="${style.a}" href="../index.html"> Clothing Store </a></li>
+                        <li style="${style.li}"><a style="${style.a}" href="../index.html">Home</a></li>
+                        <li style="${style.li}"><a style="${style.a}" href="../index.html">About us</a></li>
+                        <li style="${style.li}"><a style="${style.a}" href="../index.html">Contact</a></li>
                         <li style="${style.li}"><img id="hover-carrito" src="../images/carrito-de-compras.png" alt="carrito" width=35px />
                             <span id="icon-cart" style="${style.tooltip}">
                                 0    
